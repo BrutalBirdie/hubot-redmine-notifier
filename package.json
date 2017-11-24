@@ -1,7 +1,7 @@
 {
   "name": "redbot-redmine-notifier",
   "description": "Notifies about Redmine creating and updating tickets",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/tenten0213/hubot-redmine-notifier",
   "author": {
     "name": "Elias Hackradt",

@@ -76,6 +76,8 @@ class RedmineNotifier
     project      = issue.project.name
     author       = issue.author.login
     action       = payload.action
+    if action == 'updated'
+      author = payload.journal.author.login
     tracker      = issue.tracker.name
     issueId      = issue.id
     issueSubject = issue.subject
