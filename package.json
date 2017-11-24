@@ -1,18 +1,18 @@
 {
-  "name": "hubot-redmine-notifier",
+  "name": "redbot-redmine-notifier",
   "description": "Notifies about Redmine creating and updating tickets",
   "version": "0.0.1",
   "homepage": "https://github.com/tenten0213/hubot-redmine-notifier",
   "author": {
-    "name": "Takehito Amanuma",
-    "email": "takehito.0213@gmail.com"
+    "name": "Elias Hackradt",
+    "email": "elias.hackradt@gzevd.de"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tenten0213/hubot-redmine-notifier.git"
+    "url": "https://github.com/BrutalBirdie/redbot-redmine-notifier"
   },
   "bugs": {
-    "url": "https://github.com/tenten0213/hubot-redmine-notifier/issues"
+    "url": "https://github.com/BrutalBirdie/redbot-redmine-notifier/issues"
   },
   "licenses": [
     {
