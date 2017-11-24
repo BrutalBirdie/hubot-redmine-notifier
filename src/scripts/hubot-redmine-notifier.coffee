@@ -85,6 +85,7 @@ class RedmineNotifier
     assignee     = unless issue.assignee? then "" else issue.assignee.login
     priority     = issue.priority.name
     issueUrl     = payload.url
+    match        = /\@RedBot/gim.test(notes)
     
     message = """
               [#{project}] #{author} #{action} #{tracker}##{issueId}
@@ -100,8 +101,8 @@ class RedmineNotifier
               SHOW NOTES #{notes}
               ---- DEBUG ----
               """
-
-    @robot.send envelope, message
+    if (match)
+      @robot.send envelope, message
 
 module.exports = (robot) ->
   robot.redmine_notifier = new RedmineNotifier robot
