@@ -94,6 +94,7 @@ class RedmineNotifier
 
               ---- DEBUG ----
               TEST: #{JSON.stringify(data)}
+              ---------------
               SHOW NOTES #{notes}
               ---- DEBUG ----
               """
