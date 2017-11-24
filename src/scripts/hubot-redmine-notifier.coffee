@@ -98,7 +98,7 @@ class RedmineNotifier
               ---- DEBUG ----
               """
 
-    @robot.send envelope, "TEST"
+    @robot.send envelope, message
 
 module.exports = (robot) ->
   robot.redmine_notifier = new RedmineNotifier robot
