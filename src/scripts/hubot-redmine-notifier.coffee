@@ -69,18 +69,21 @@ class RedmineNotifier
 
     [@dataMethodJSONParse, @dataMethodRaw].forEach(filterChecker)
 
-    payload = data.payload
-    issue = payload.issue
-    project = issue.project.name
-    author = issue.author.login
-    action = payload.action
-    tracker = issue.tracker.name
-    issueId = issue.id
+    payload      = data.payload
+    issue        = payload.issue
+    journal      = payload.journal
+    notes        = journal.notes
+    project      = issue.project.name
+    author       = issue.author.login
+    action       = payload.action
+    tracker      = issue.tracker.name
+    issueId      = issue.id
     issueSubject = issue.subject
-    status = issue.status.name
-    assignee = unless issue.assignee? then "" else issue.assignee.login
-    priority = issue.priority.name
-    issueUrl = payload.url
+    status       = issue.status.name
+    assignee     = unless issue.assignee? then "" else issue.assignee.login
+    priority     = issue.priority.name
+    issueUrl     = payload.url
+    
     message = """
               [#{project}] #{author} #{action} #{tracker}##{issueId}
               Subject: #{issueSubject}
@@ -88,9 +91,14 @@ class RedmineNotifier
               Priority: #{priority}
               Assignee: #{assignee}
               URL: #{issueUrl}
+
+              ---- DEBUG ----
+              TEST: #{JSON.stringify(data)}
+              SHOW NOTES #{notes}
+              ---- DEBUG ----
               """
 
-    @robot.send envelope, message
+    @robot.send envelope, "TEST"
 
 module.exports = (robot) ->
   robot.redmine_notifier = new RedmineNotifier robot
