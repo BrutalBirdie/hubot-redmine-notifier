@@ -117,7 +117,7 @@ class RedmineNotifier
                 """
       @robot.send envelope, message
     else
-      console.log """ ##{issueId} Updated but #{author} did not want to share the info"""
+      console.log """##{issueId} Updated but #{author} did not want to share the info"""
 
 module.exports = (robot) ->
   robot.redmine_notifier = new RedmineNotifier robot
