@@ -4,6 +4,8 @@ Notifies about Redmine creating and updating tickets.
 This Module is a fork of the [hubot-redmine-notifier](https://www.npmjs.com/package/hubot-redmine-notifier)
 This fork will only notifie about the Notes inside a Redmine Ticket when called with a BuzzWord.
 Example note of a redmine issue: "Some Foo @RedBot The message to send RedBot@ End Foo
+
+
 ![notification to chat screenshot](notification-screenshot.png)
 
 ## Getting Started
