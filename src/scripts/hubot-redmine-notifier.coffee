@@ -73,6 +73,9 @@ class RedmineNotifier
     issue        = payload.issue
     journal      = payload.journal
     notes        = journal.notes
+    time         = issue.updated_on
+    timeRegEx1   = time.replace /T/igm, " - "
+    timeRegEx2   = timeRegEx1.replace /\.000Z/igm, " Uhr"
     project      = issue.project.name
     author       = issue.author.login
     action       = payload.action
@@ -86,6 +89,7 @@ class RedmineNotifier
     priority     = issue.priority.name
     issueUrl     = payload.url
     match        = /\@RedBot/gim.test(notes)
+    submsg       = /\@RedBot(.*)RedBot\@/.exec(notes)
     
     message = """
               [#{project}] #{author} #{action} #{tracker}##{issueId}
@@ -102,6 +106,15 @@ class RedmineNotifier
               ---- DEBUG ----
               """
     if (match)
+      message = """
+                [#{project}]
+                Datum:  #{timeRegEx2}
+                Thema:  #{issueSubject}
+                Status: #{status}
+                Notiz:  #{submsg[1]}
+                Ticket: ##{issueId}
+                URL:    #{issueUrl}
+                """
       @robot.send envelope, message
 
 module.exports = (robot) ->
