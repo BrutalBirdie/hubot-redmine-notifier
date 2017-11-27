@@ -74,8 +74,8 @@ class RedmineNotifier
     journal      = payload.journal
     notes        = journal.notes
     time         = issue.updated_on
-    timeRegEx1   = time.replace /T/igm, " - "
-    timeRegEx2   = timeRegEx1.replace /\.000Z/igm, " Uhr"
+    timeRegEx1   = time.replace /T/gim, " - "
+    timeRegEx2   = timeRegEx1.replace /\.000Z/gim, " Uhr"
     project      = issue.project.name
     author       = issue.author.login
     action       = payload.action
@@ -89,7 +89,7 @@ class RedmineNotifier
     priority     = issue.priority.name
     issueUrl     = payload.url
     match        = /\@RedBot/gim.test(notes)
-    submsg       = /\@RedBot(.*)RedBot\@/.exec(notes)
+    submsg       = /\@RedBot(.*)RedBot\@/gim.exec(notes)
     
     message = """
               [#{project}] #{author} #{action} #{tracker}##{issueId}
@@ -117,7 +117,7 @@ class RedmineNotifier
                 """
       @robot.send envelope, message
     else
-      console.log """Updated but #{author} did not want to share the info"""
+      console.log """ ##{issueId} Updated but #{author} did not want to share the info"""
 
 module.exports = (robot) ->
   robot.redmine_notifier = new RedmineNotifier robot
