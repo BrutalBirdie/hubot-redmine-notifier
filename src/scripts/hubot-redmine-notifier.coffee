@@ -88,32 +88,17 @@ class RedmineNotifier
     assignee     = unless issue.assignee? then "" else issue.assignee.login
     priority     = issue.priority.name
     issueUrl     = payload.url
-    match        = /\@RedBot/gim.test(notes)
-    submsg       = /\@RedBot(.*)RedBot\@/gim.exec(notes)
-    
-    message = """
-              [#{project}] #{author} #{action} #{tracker}##{issueId}
-              Subject: #{issueSubject}
-              Status: #{status}
-              Priority: #{priority}
-              Assignee: #{assignee}
-              URL: #{issueUrl}
-
-              ---- DEBUG ----
-              TEST: #{JSON.stringify(data)}
-              ---------------
-              SHOW NOTES #{notes}
-              ---- DEBUG ----
-              """
-    if (match)
+    match = notes.match(/(\@HuBot[\w\W]*?HuBot\@)/gim)
+    if (match != null)
+      repmsg = match.join("\n").replace /\@HuBot|HuBot@|\,/gim, ""
       message = """
-                [#{project}]
-                Datum:  #{timeRegEx2}
-                Thema:  #{issueSubject}
-                Status: #{status}
-                Notiz:  #{submsg[1]}
-                Ticket: ##{issueId}
-                URL:    #{issueUrl}
+                [#{project}] #{author} #{action} #{tracker} [##{issueId}](#{issueUrl})
+                *Datum:*  #{timeRegEx2}
+                *Thema:*  #{issueSubject}
+                *Status:* #{status}
+                *Zugewiesen an:* #{assignee}
+                *Notiz:*
+                #{repmsg}
                 """
       @robot.send envelope, message
     else

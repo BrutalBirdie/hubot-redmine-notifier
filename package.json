@@ -1,19 +1,58 @@
 {
-  "name": "redbot-redmine-notifier",
-  "description": "Notifies about Redmine creating and updating tickets",
-  "version": "0.1.1",
-  "homepage": "https://github.com/tenten0213/hubot-redmine-notifier",
+  "_from": "redbot-redmine-notifier",
+  "_id": "redbot-redmine-notifier@0.1.6",
+  "_inBundle": false,
+  "_integrity": "sha512-5gwgUvHrTXoTUAvkFdAk5IQdrC6AU/ZV1U2PrDt3KzREifVrmf/zVHYTCU73kWBgKCsg8wXr0OkQp2DGqoenCQ==",
+  "_location": "/redbot-redmine-notifier",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "redbot-redmine-notifier",
+    "name": "redbot-redmine-notifier",
+    "escapedName": "redbot-redmine-notifier",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/redbot-redmine-notifier/-/redbot-redmine-notifier-0.1.6.tgz",
+  "_shasum": "58d7b06cfd26cbb0b486688b54d03c2d46c98d83",
+  "_spec": "redbot-redmine-notifier",
+  "_where": "/home/hubot/RedBot",
   "author": {
     "name": "Elias Hackradt",
     "email": "elias.hackradt@gzevd.de"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BrutalBirdie/redbot-redmine-notifier"
-  },
   "bugs": {
     "url": "https://github.com/BrutalBirdie/redbot-redmine-notifier/issues"
   },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Notifies about Redmine creating and updating tickets",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-coffeelint": "0.0.8",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-simple-mocha": "~0.4.0",
+    "hubot": "~2.6.4",
+    "should": "~3.1.2",
+    "sinon": "~1.8.2",
+    "supertest": "~0.9.0"
+  },
+  "homepage": "https://github.com/tenten0213/hubot-redmine-notifier",
+  "keywords": [
+    "hubot",
+    "redmine"
+  ],
   "licenses": [
     {
       "type": "MIT",
@@ -21,26 +60,13 @@
     }
   ],
   "main": "src/scripts/hubot-redmine-notifier",
+  "name": "redbot-redmine-notifier",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrutalBirdie/redbot-redmine-notifier.git"
+  },
   "scripts": {
     "test": "grunt simplemocha"
   },
-  "devDependencies": {
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-coffeelint": "0.0.8",
-    "grunt-simple-mocha": "~0.4.0",
-    "should": "~3.1.2",
-    "grunt": "~0.4.2",
-    "supertest": "~0.9.0",
-    "sinon": "~1.8.2",
-    "hubot": "~2.6.4",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-coffee": "~0.10.1",
-    "grunt-contrib-jshint": "~0.8.0"
-  },
-  "keywords": [
-    "hubot",
-    "redmine"
-  ],
-  "dependencies": {}
+  "version": "0.1.6"
 }
